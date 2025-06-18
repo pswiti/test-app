@@ -1,6 +1,7 @@
 
 az login
 az account set --subscription "<Your Subscription Name or ID>"
+az account show
 mkdir container-app-tf && cd container-app-tf
 
 container-app-tf/

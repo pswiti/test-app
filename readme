@@ -1,0 +1,6 @@
+azure-repo/
+│
+├── main.tf            # Terraform main config
+├── variables.tf       # Input variables
+├── terraform.tfvars   # Your actual values
+└── azure-pipelines.yml # Azure DevOps pipeline

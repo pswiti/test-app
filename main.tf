@@ -26,15 +26,17 @@ resource "azurerm_container_app" "app" {
       cpu    = 0.25
       memory = "0.5Gi"
 
-      ports {
-        port     = 80
-        protocol = "TCP"
+    
       }
     }
-  }
-
   ingress {
     external_enabled = true
     target_port      = 80
+    transport        = "auto"
+
+    traffic_weight {
+      percentage      = 100
+      latest_revision = true
+    }
   }
 }

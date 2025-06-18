@@ -23,3 +23,15 @@ az containerapp show \
   --output tsv
 
 terraform destroy -var-file="terraform.tfvars" -auto-approve
+
+
+The subscription is not registered to use namespace 'Microsoft.App'. See
+│ https://aka.ms/rps-not-found for how to register subscriptions.
+╵
+
+az provider register --namespace Microsoft.App
+az provider show --namespace Microsoft.App --query "registrationState"
+
+az provider unregister --namespace Microsoft.App
+az provider show --namespace Microsoft.App --query "registrationState"
+

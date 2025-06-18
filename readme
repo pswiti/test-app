@@ -1,6 +1,24 @@
-azure-repo/
+
+az login
+az account set --subscription "<Your Subscription Name or ID>"
+mkdir container-app-tf && cd container-app-tf
+
+container-app-tf/
 │
 ├── main.tf            # Terraform main config
 ├── variables.tf       # Input variables
 ├── terraform.tfvars   # Your actual values
 └── azure-pipelines.yml # Azure DevOps pipeline
+
+
+terraform init
+terraform plan -var-file="terraform.tfvars"
+terraform apply -var-file="terraform.tfvars" -auto-approve
+
+az containerapp show \
+  --name my-containerapp \
+  --resource-group my-containerapp-rg \
+  --query properties.configuration.ingress.fqdn \
+  --output tsv
+
+terraform destroy -var-file="terraform.tfvars" -auto-approve

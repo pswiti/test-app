@@ -1,0 +1,5 @@
+resource_group_name = "my-containerapp-rg"
+location            = "eastus"
+environment_name    = "my-container-env"
+container_app_name  = "my-containerapp"
+container_image     = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
